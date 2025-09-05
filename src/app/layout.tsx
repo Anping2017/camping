@@ -1,14 +1,9 @@
-import { Inter } from 'next/font/google'
-import { AntdRegistry } from '@ant-design/nextjs-registry'
-import { ConfigProvider } from 'antd'
-import zhCN from 'antd/locale/zh_CN'
-import './globals.css'
-import { Providers } from '@/providers'
-import { metadata } from './metadata'
+import type { Metadata } from 'next'
 
-const inter = Inter({ subsets: ['latin'] })
-
-export { metadata }
+export const metadata: Metadata = {
+  title: '新西兰露营管理平台',
+  description: '新西兰露营管理平台 - 极简版本',
+}
 
 export default function RootLayout({
   children,
@@ -16,22 +11,27 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="zh">
-      <body className={inter.className}>
-        <Providers>
-          <AntdRegistry>
-            <ConfigProvider
-              locale={zhCN}
-              theme={{
-                token: {
-                  colorPrimary: '#00b96b',
-                },
-              }}
-            >
-              {children}
-            </ConfigProvider>
-          </AntdRegistry>
-        </Providers>
+    <html lang="zh-CN">
+      <body>
+        <header style={{ 
+          backgroundColor: '#2563eb', 
+          color: 'white', 
+          padding: '1rem',
+          textAlign: 'center'
+        }}>
+          <h1>新西兰露营管理平台</h1>
+        </header>
+        <main>
+          {children}
+        </main>
+        <footer style={{ 
+          backgroundColor: '#f3f4f6', 
+          padding: '1rem',
+          textAlign: 'center',
+          marginTop: '2rem'
+        }}>
+          <p>© 2024 新西兰露营管理平台 - 极简版本</p>
+        </footer>
       </body>
     </html>
   )

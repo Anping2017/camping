@@ -1,8 +1,6 @@
 'use client'
 
 import { useEffect } from 'react'
-import { Button } from 'antd'
-import { ReloadOutlined } from '@ant-design/icons'
 
 export default function Error({
   error,
@@ -16,23 +14,55 @@ export default function Error({
   }, [error])
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="text-center">
-        <h1 className="text-6xl font-bold text-gray-900 mb-4">出错了</h1>
-        <h2 className="text-2xl font-semibold text-gray-700 mb-4">
+    <div style={{ 
+      minHeight: '100vh', 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center', 
+      backgroundColor: '#f9fafb',
+      fontFamily: 'Arial, sans-serif'
+    }}>
+      <div style={{ textAlign: 'center' }}>
+        <h1 style={{ 
+          fontSize: '4rem', 
+          fontWeight: 'bold', 
+          color: '#111827', 
+          marginBottom: '1rem' 
+        }}>
+          出错了
+        </h1>
+        <h2 style={{ 
+          fontSize: '1.5rem', 
+          fontWeight: '600', 
+          color: '#374151', 
+          marginBottom: '1rem' 
+        }}>
           抱歉，发生了一些错误
         </h2>
-        <p className="text-gray-500 mb-8">
+        <p style={{ 
+          color: '#6b7280', 
+          marginBottom: '2rem' 
+        }}>
           请稍后再试或联系系统管理员
         </p>
-        <Button 
-          type="primary" 
-          icon={<ReloadOutlined />} 
-          size="large"
+        <button 
           onClick={reset}
+          style={{
+            backgroundColor: '#2563eb',
+            color: 'white',
+            border: 'none',
+            padding: '0.75rem 1.5rem',
+            borderRadius: '6px',
+            fontSize: '1rem',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            margin: '0 auto'
+          }}
         >
-          重试
-        </Button>
+          🔄 重试
+        </button>
       </div>
     </div>
   )

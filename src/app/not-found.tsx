@@ -1,20 +1,54 @@
 import Link from 'next/link'
-import { Button } from 'antd'
-import { HomeOutlined } from '@ant-design/icons'
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="text-center">
-        <h1 className="text-6xl font-bold text-gray-900 mb-4">404</h1>
-        <h2 className="text-2xl font-semibold text-gray-700 mb-4">页面未找到</h2>
-        <p className="text-gray-500 mb-8">
+    <div style={{ 
+      minHeight: '100vh', 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center', 
+      backgroundColor: '#f9fafb',
+      fontFamily: 'Arial, sans-serif'
+    }}>
+      <div style={{ textAlign: 'center' }}>
+        <h1 style={{ 
+          fontSize: '4rem', 
+          fontWeight: 'bold', 
+          color: '#111827', 
+          marginBottom: '1rem' 
+        }}>
+          404
+        </h1>
+        <h2 style={{ 
+          fontSize: '1.5rem', 
+          fontWeight: '600', 
+          color: '#374151', 
+          marginBottom: '1rem' 
+        }}>
+          页面未找到
+        </h2>
+        <p style={{ 
+          color: '#6b7280', 
+          marginBottom: '2rem' 
+        }}>
           抱歉，您访问的页面不存在。
         </p>
         <Link href="/dashboard">
-          <Button type="primary" icon={<HomeOutlined />} size="large">
-            返回首页
-          </Button>
+          <button style={{
+            backgroundColor: '#2563eb',
+            color: 'white',
+            border: 'none',
+            padding: '0.75rem 1.5rem',
+            borderRadius: '6px',
+            fontSize: '1rem',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            margin: '0 auto'
+          }}>
+            🏠 返回首页
+          </button>
         </Link>
       </div>
     </div>

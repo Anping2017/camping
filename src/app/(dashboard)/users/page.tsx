@@ -1,113 +1,58 @@
-'use client'
-
-import { useState } from 'react'
-import { Table, Card, Button, Input, Space, Tag } from 'antd'
-import { SearchOutlined, PlusOutlined } from '@ant-design/icons'
-
-const { Search } = Input
-
-interface UserData {
-  id: string
-  name: string
-  email: string
-  role: string
-  status: string
-  createdAt: string
-}
-
-// 模拟数据
-const mockData: UserData[] = [
-  {
-    id: '1',
-    name: '管理员',
-    email: 'admin@example.com',
-    role: 'admin',
-    status: 'active',
-    createdAt: '2024-01-01',
-  },
-  // 添加更多模拟数据...
-]
-
-export default function UsersPage() {
-  const [searchText, setSearchText] = useState('')
-  const [loading, setLoading] = useState(false)
-
-  const columns = [
-    {
-      title: '用户名',
-      dataIndex: 'name',
-      key: 'name',
-    },
-    {
-      title: '邮箱',
-      dataIndex: 'email',
-      key: 'email',
-    },
-    {
-      title: '角色',
-      dataIndex: 'role',
-      key: 'role',
-      render: (role: string) => (
-        <Tag color={role === 'admin' ? 'red' : 'blue'}>
-          {role === 'admin' ? '管理员' : '普通用户'}
-        </Tag>
-      ),
-    },
-    {
-      title: '状态',
-      dataIndex: 'status',
-      key: 'status',
-      render: (status: string) => (
-        <Tag color={status === 'active' ? 'green' : 'gray'}>
-          {status === 'active' ? '活跃' : '禁用'}
-        </Tag>
-      ),
-    },
-    {
-      title: '创建时间',
-      dataIndex: 'createdAt',
-      key: 'createdAt',
-    },
-    {
-      title: '操作',
-      key: 'action',
-      render: (_: any, record: UserData) => (
-        <Space size="middle">
-          <Button type="link">编辑</Button>
-          <Button type="link" danger>
-            删除
-          </Button>
-        </Space>
-      ),
-    },
-  ]
-
-  const handleSearch = (value: string) => {
-    setSearchText(value)
-    // TODO: 实现搜索功能
-  }
-
+export default function Users() {
   return (
-    <div>
-      <Card>
-        <div className="mb-4 flex justify-between">
-          <Search
-            placeholder="搜索用户..."
-            onSearch={handleSearch}
-            style={{ width: 300 }}
-          />
-          <Button type="primary" icon={<PlusOutlined />}>
-            添加用户
-          </Button>
+    <div style={{ padding: '2rem' }}>
+      <h1>用户管理</h1>
+      
+      <div style={{ marginTop: '2rem' }}>
+        <div style={{ 
+          backgroundColor: 'white', 
+          borderRadius: '8px', 
+          padding: '1rem',
+          border: '1px solid #e2e8f0'
+        }}>
+          <h3>用户列表</h3>
+          <div style={{ marginTop: '1rem' }}>
+            <div style={{ 
+              padding: '1rem', 
+              border: '1px solid #e2e8f0', 
+              borderRadius: '6px',
+              marginBottom: '0.5rem'
+            }}>
+              <h4>张三</h4>
+              <p>📧 zhang@example.com</p>
+              <p>📱 +64 21 123 4567</p>
+              <p>📅 注册时间: 2024-01-15</p>
+              <p style={{ color: '#059669' }}>✅ 活跃用户</p>
+            </div>
+            
+            <div style={{ 
+              padding: '1rem', 
+              border: '1px solid #e2e8f0', 
+              borderRadius: '6px',
+              marginBottom: '0.5rem'
+            }}>
+              <h4>李四</h4>
+              <p>📧 li@example.com</p>
+              <p>📱 +64 21 234 5678</p>
+              <p>📅 注册时间: 2024-02-20</p>
+              <p style={{ color: '#059669' }}>✅ 活跃用户</p>
+            </div>
+            
+            <div style={{ 
+              padding: '1rem', 
+              border: '1px solid #e2e8f0', 
+              borderRadius: '6px',
+              marginBottom: '0.5rem'
+            }}>
+              <h4>王五</h4>
+              <p>📧 wang@example.com</p>
+              <p>📱 +64 21 345 6789</p>
+              <p>📅 注册时间: 2024-03-10</p>
+              <p style={{ color: '#6b7280' }}>⏸️ 非活跃</p>
+            </div>
+          </div>
         </div>
-
-        <Table
-          columns={columns}
-          dataSource={mockData}
-          rowKey="id"
-          loading={loading}
-        />
-      </Card>
+      </div>
     </div>
   )
 }
