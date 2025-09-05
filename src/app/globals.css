@@ -4,11 +4,60 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-rgb: 240, 242, 245;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: #f0f2f5;
+  background: rgb(var(--background-rgb));
+}
+
+/* Ant Design 覆盖样式 */
+.ant-layout {
+  background: rgb(var(--background-rgb));
+}
+
+.ant-layout-sider-children {
+  display: flex;
+  flex-direction: column;
+}
+
+.ant-layout-sider-children .logo {
+  padding: 16px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 16px;
+  border-radius: 4px;
+}
+
+.ant-menu-item.ant-menu-item-selected {
+  background-color: #00b96b !important;
+}
+
+/* 自定义工具类 */
+.text-success {
+  color: #52c41a;
+}
+
+.text-warning {
+  color: #faad14;
+}
+
+.text-error {
+  color: #ff4d4f;
+}
+
+/* 响应式布局辅助类 */
+@media (max-width: 768px) {
+  .ant-table {
+    overflow-x: auto;
+  }
+  
+  .ant-table-thead > tr > th,
+  .ant-table-tbody > tr > td {
+    white-space: nowrap;
+  }
 }
